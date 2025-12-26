@@ -1,0 +1,75 @@
+.admin-dashboard {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.admin-table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+.admin-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.admin-table tr.pending {
+  background-color: #fff8dc;
+}
+
+.admin-table tr.approved {
+  background-color: #d4edda;
+}
+
+.admin-table tr.rejected {
+  background-color: #f8d7da;
+}
+
+.actions-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.actions-btns button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions-btns button.validate {
+  background-color: #28a745;
+  color: white;
+}
+
+.actions-btns button.reject {
+  background-color: #dc3545;
+  color: white;
+}
+
+.loading {
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+}
