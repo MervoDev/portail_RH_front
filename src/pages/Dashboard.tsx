@@ -26,12 +26,13 @@ export default function AdminDashboard() {
         ]);
 
         const allDemandes = [
-          ...congesRes.data.map((c: any) => ({ ...c, type: "CONGE" })),
-          ...absencesRes.data.map((a: any) => ({ ...a, type: "ABSENCE" })),
+          ...congesRes.data.map((c: unknown) => ({ ...(c as Omit<Demande, "type">), type: "CONGE" })),
+          ...absencesRes.data.map((a: unknown) => ({ ...(a as Omit<Demande, "type">), type: "ABSENCE" })),
         ];
 
         setDemandes(allDemandes);
       } catch (error) {
+        console.error(error);
         alert("Erreur lors du chargement des demandes");
       } finally {
         setLoading(false);

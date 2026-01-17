@@ -39,7 +39,12 @@ export default function DemandeForm() {
 
       <div className="form-group">
         <label>Type de demande</label>
-        <select value={type} onChange={(e) => setType(e.target.value as any)}>
+        <select
+          value={type}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setType(e.target.value as "CONGE" | "ABSENCE")
+          }
+        >
           <option value="CONGE">Congé</option>
           <option value="ABSENCE">Absence</option>
         </select>

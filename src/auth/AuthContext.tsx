@@ -1,4 +1,5 @@
-import { createContext, useContext, useState} from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState } from "react";
 import type {ReactNode } from "react";
 import axios from "axios";
 
@@ -18,7 +19,7 @@ type AuthContextType = {
 };
 
 
-const AuthContext = createContext<AuthContextType | null>(null);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -60,10 +61,3 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 }
 
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used inside AuthProvider");
-  }
-  return context;
-}
