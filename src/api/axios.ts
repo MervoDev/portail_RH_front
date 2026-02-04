@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3001",
+  timeout: 10000,
 });
 
 api.interceptors.request.use((config) => {
@@ -13,5 +14,17 @@ api.interceptors.request.use((config) => {
 
   return config;
 });
+
+// Intercepteur pour gérer les erreurs d'authentification
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("token");
+      window.location.reload();
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default api;
